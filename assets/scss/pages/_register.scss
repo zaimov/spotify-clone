@@ -1,0 +1,17 @@
+@mixin register--default {
+    .register {
+        background-color: #000;
+        background-image: url(../images/register-background.jpg);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        &-wrapper {
+            color: $register-body-color;
+        }
+    }
+}
+
+@include register--default;
