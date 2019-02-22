@@ -1,3 +1,14 @@
+<?php
+include("includes/config.php");
+
+if(isset($_SESSION['userLoggedIn'])) {
+    $userLoggedin = $_SESSION['userLoggedIn'];
+} else {
+    header('Location: register.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +18,6 @@
     <title>Sporify Clone</title>
 </head>
 <body>
-    
+    <h1>Home page</h1>
 </body>
 </html>

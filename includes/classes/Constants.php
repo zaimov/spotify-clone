@@ -1,6 +1,8 @@
 <?php
 
 class Constants {
+
+    public static $loginFailed = "Your username or password was incorrect";
     
     public static $usernameLength = "Your username must be between 5 and 25 characters";
     public static $usernameTaken = "This username already exists";
