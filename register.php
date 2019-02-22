@@ -1,9 +1,9 @@
 <?php
-
+include("includes/config.php");
 include("includes/classes/Account.php");
 include("includes/classes/Constants.php");
 
-$account = new Account();
+$account = new Account($con);
 
 include("includes/handlers/register_handler.php");
 include("includes/handlers/login_handler.php");
@@ -43,6 +43,7 @@ function getInputValue($name) {
             <h2>Create your free account</h2>
             <p>
                 <?php echo $account->getError(Constants::$usernameLength) ?>
+                <?php echo $account->getError(Constants::$usernameTaken) ?>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Username" value="<?php getInputValue('username') ?>" required>
             </p>
@@ -62,6 +63,7 @@ function getInputValue($name) {
             <p>
                 <?php echo $account->getError(Constants::$emailsDoNotMatch) ?> 
                 <?php echo $account->getError(Constants::$emailInvalid) ?>
+                <?php echo $account->getError(Constants::$emailTaken) ?>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email" value="<?php getInputValue('email') ?>" required>
             </p>
