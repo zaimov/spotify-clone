@@ -21,9 +21,9 @@ function getInputValue($name) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Register</title>     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <div class="register">
@@ -35,21 +35,25 @@ function getInputValue($name) {
                         <p>
                             <?php echo $account->getError(Constants::$loginFailed) ?>
                             <label for="loginUsername">Username</label>
-                            <input type="text" id="loginUsername" name="loginUsername" placeholder="Username" required>
+                            <input type="text" id="loginUsername" name="loginUsername" placeholder="Username"  value="<?php getInputValue('loginUsername') ?>" required>
                         </p>
                         <p>
                             <label for="loginPassword">Password</label>
                             <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>            
                         </p>
 
-                        <button type="Submit" name="loginButton">Login</button>
+                        <button type="Submit" name="loginButton">Log in</button>
+
+                        <div class="hasAccountText">
+                            <span id="hideLogin">Don't have an account yet? Sign up here.</span>
+                        </div>
                     </form>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                <form action="register.php" id="registerForm" class="register-container__register-form" method="POST">
+                <form action="register.php" id="registerForm" class="register-wrapper__register-form" method="POST">
                     <h2>Create your free account</h2>
                     <p>
                         <?php echo $account->getError(Constants::$usernameLength) ?>
@@ -97,10 +101,36 @@ function getInputValue($name) {
                     </p>
 
                     <button type="Submit" name="registerButton">Sign Up</button>
+
+                    <div class="hasAccountText">
+                            <span id="hideRegister">Already have an account? Log in here.</span>
+                        </div>
                 </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/register.js"></script>
+
+    <?php 
+        if(isset($_POST['registerButton'])) {
+            echo '<script>
+                    $( document ).ready(function() {
+                        $("#loginForm").hide();
+                        $("#registerForm").show();
+                    });
+                </script>';
+        } else {
+            echo '<script>
+                $( document ).ready(function() {
+                    $("#loginForm").show();
+                    $("#registerForm").hide();
+                });
+            </script>';
+        }
+    ?>
+    
 </body>
 </html>
