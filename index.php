@@ -16,8 +16,55 @@ if(isset($_SESSION['userLoggedIn'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sporify Clone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
 </head>
 <body>
-    <h1>Home page</h1>
+    <div class="media">
+        <div class="media__player">
+            <div class="media__playerbar">
+                <div class="media__playerbar-left"></div>
+
+                <div class="media__playerbar-center">
+                    <div class="media__playerbar-controls">
+                        <div class="media__playerbar-buttons">
+                            <button class="media__playerbar-controlButton shuffle" title="Shuffle Button">
+                                <img src="assets/images/icons/shuffle.png" alt="Shuffle">
+                            </button>
+
+                            <button class="media__playerbar-controlButton previous" title="Previous Button">
+                                <img src="assets/images/icons/previous.png" alt="Previous">
+                            </button>
+
+                            <button class="media__playerbar-controlButton play" title="Play Button">
+                                <img src="assets/images/icons/play.png" alt="Play">
+                            </button>
+
+                            <button class="media__playerbar-controlButton pause" title="Pause Button" style="display:none;">
+                                <img src="assets/images/icons/pause.png" alt="Pause">
+                            </button>
+
+                            <button class="media__playerbar-controlButton next" title="Next Button">
+                                <img src="assets/images/icons/next.png" alt="Next">
+                            </button>
+
+                            <button class="media__playerbar-controlButton repeat" title="Repeat Button">
+                                <img src="assets/images/icons/repeat.png" alt="Repeat">
+                            </button>
+                        </div>
+
+                        <div class="media__playbackbar">
+                            <span class="media__playbackbar-time current">0.00</span>
+                            <div class="media__playbackbar-progress progressBar"></div>
+                            <span class="media__playbackbar-time remaining">0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media__playerbar-right"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -5,6 +5,104 @@ body, html {
   height: 100%;
 }
 
+.media__player {
+  width: 100%;
+  background: #282828;
+  position: fixed;
+  bottom: 0;
+  min-width: 620px;
+}
+.media__playerbar {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  height: 7rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.media__playerbar-left, .media__playerbar-right {
+  width: 30%;
+  min-width: 11rem;
+}
+.media__playerbar-center {
+  width: 40%;
+  max-width: 700px;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.media__playerbar-controls {
+  width: 100%;
+}
+.media__playerbar-buttons {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  justify-content: center;
+}
+.media__playerbar-controlButton {
+  background: transparent;
+  border: none;
+  align-items: center;
+}
+.media__playerbar-controlButton img {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.media__playerbar-controlButton.play img, .media__playerbar-controlButton.pause img {
+  height: 2rem;
+  width: 2rem;
+}
+.media__playerbar-controlButton:hover {
+  cursor: pointer;
+}
+.media__playbackbar {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  align-items: center;
+}
+.media__playbackbar-time {
+  color: #a0a0a0;
+  font-size: 0.6875rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+.media__playbackbar-progress {
+  height: 0.75rem;
+  width: 100%;
+  cursor: pointer;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
 .register {
   background-color: #000;
   background-image: url(../images/register-background.jpg);
