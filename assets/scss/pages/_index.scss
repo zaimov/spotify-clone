@@ -1,19 +1,68 @@
 @mixin media--default {
     .media {
+        &__content {
+            min-height: 100%;
+            width: 100%;
+
+            &-sidebar {
+                background: $black;
+                width: 14rem;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            &-navbar {
+                @include display-flex();
+                flex-direction: column;
+                padding: 1.563rem;
+            }
+
+            &-logo {
+                margin: 0 0 5rem 0;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &-items {
+                border-top: 1px solid $media-buttons-color;
+                padding: 0 0 1rem 0;
+
+                a {
+                    padding: 1rem 0 0 0;
+                    display: block;
+                    color: $media-buttons-color;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+
+            &-search {
+                position: relative;
+                    img {
+                        width: 1.5rem;
+                        position: absolute;
+                        right: 0;
+                    }
+            }
+        }
+
         &__player {
             width: 100%;
             background: $media-background-color;
             position: fixed;
             bottom: 0;
-            min-width: 620px;
+            min-width: 38.75rem;
         }
 
         &__playerbar {
-            display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-            display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-            display: -ms-flexbox;      /* TWEENER - IE 10 */
-            display: -webkit-flex;     /* NEW - Chrome */
-            display: flex; 
+            @include display-flex();
             height: 7rem;
             padding: 1rem;
             box-sizing: border-box;
@@ -58,7 +107,7 @@
 
             &-center {
                 width: 40%;
-                max-width: 700px;
+                max-width: 43.75rem;
                 @include display-flex();
                 flex-direction: column;
                 justify-content: center;
@@ -99,24 +148,20 @@
             &-right {
                 @include display-flex();
                 align-self: center;
-                justify-content: center;
+                justify-content: flex-end;
                 .progressBar {
-                    width: 125px;
+                    width: 7.813rem;
                 }
             }
 
             &-volumeBar {
-                width: 180px;
-                padding-top: 25px;
+                width: 11.25rem;
+                padding-top: 1.563rem;
             }
         }
 
         &__playbackbar {
-            display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-            display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-            display: -ms-flexbox;      /* TWEENER - IE 10 */
-            display: -webkit-flex;     /* NEW - Chrome */
-            display: flex; 
+            @include display-flex();
             align-items: center;
 
             &-time {
