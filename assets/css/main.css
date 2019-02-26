@@ -30,6 +30,38 @@ body, html {
   width: 30%;
   min-width: 11rem;
 }
+.media__playerbar-album {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  width: 100%;
+  height: 4.5rem;
+  color: #fff;
+}
+.media__playerbar-albumLink img {
+  height: 100%;
+  max-width: 4.5rem;
+  margin-right: 0.9375rem;
+  width: 4.5rem;
+  background-size: cover;
+}
+.media__playerbar-trackInfo {
+  display: inline-block;
+}
+.media__playerbar-trackName, .media__playerbar-artistName {
+  display: block;
+  margin: 0.2rem;
+}
+.media__playerbar-artistName {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+}
 .media__playerbar-center {
   width: 40%;
   max-width: 700px;
@@ -101,6 +133,19 @@ body, html {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  align-items: center;
+}
+.media__playbackbar-progressBackground, .media__playbackbar-progressFiller {
+  height: 0.25rem;
+  border-radius: 2px;
+}
+.media__playbackbar-progressBackground {
+  background: #404040;
+  width: 100%;
+}
+.media__playbackbar-progressFiller {
+  background: #a0a0a0;
+  width: 0;
 }
 
 .register {

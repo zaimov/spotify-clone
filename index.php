@@ -24,7 +24,22 @@ if(isset($_SESSION['userLoggedIn'])) {
     <div class="media">
         <div class="media__player">
             <div class="media__playerbar">
-                <div class="media__playerbar-left"></div>
+                <div class="media__playerbar-left">
+                    <div class="media__playerbar-album">
+                        <span class="media__playerbar-albumLink">
+                            <img src="https://jellyfishhealth.com/wp-content/uploads/2018/03/Square-PhotoWithout.png" alt="album">
+                        </span>
+
+                        <div class="media__playerbar-trackInfo">
+                            <span class="media__playerbar-trackName">
+                                Nothing else matters Nothing else matters 
+                            </span>
+                            <span class="media__playerbar-artistName">
+                                Metallica
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="media__playerbar-center">
                     <div class="media__playerbar-controls">
@@ -56,7 +71,15 @@ if(isset($_SESSION['userLoggedIn'])) {
 
                         <div class="media__playbackbar">
                             <span class="media__playbackbar-time current">0.00</span>
-                            <div class="media__playbackbar-progress progressBar"></div>
+
+                            <div class="media__playbackbar-progress progressBar">
+                                <div class="media__playbackbar-progressBackground">
+                                    <div class="media__playbackbar-progressFiller">
+
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <span class="media__playbackbar-time remaining">0.00</span>
                         </div>
                     </div>
