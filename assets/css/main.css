@@ -2,16 +2,14 @@ body, html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }
 
 .media__player {
   width: 100%;
   background: #282828;
   position: fixed;
   bottom: 0;
-  min-width: 620px;
-}
+  min-width: 620px; }
 .media__playerbar {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -24,90 +22,93 @@ body, html {
   display: flex;
   height: 7rem;
   padding: 1rem;
-  box-sizing: border-box;
-}
-.media__playerbar-left, .media__playerbar-right {
-  width: 30%;
-  min-width: 11rem;
-}
-.media__playerbar-album {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  width: 100%;
-  height: 4.5rem;
-  color: #fff;
-}
-.media__playerbar-albumLink img {
-  height: 100%;
-  max-width: 4.5rem;
-  margin-right: 0.9375rem;
-  width: 4.5rem;
-  background-size: cover;
-}
-.media__playerbar-trackInfo {
-  display: inline-block;
-}
-.media__playerbar-trackName, .media__playerbar-artistName {
-  display: block;
-  margin: 0.2rem;
-}
-.media__playerbar-artistName {
-  font-size: 0.75rem;
-  color: #a0a0a0;
-}
-.media__playerbar-center {
-  width: 40%;
-  max-width: 700px;
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.media__playerbar-controls {
-  width: 100%;
-}
-.media__playerbar-buttons {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: flex;
-  justify-content: center;
-}
-.media__playerbar-controlButton {
-  background: transparent;
-  border: none;
-  align-items: center;
-}
-.media__playerbar-controlButton img {
-  height: 1.25rem;
-  width: 1.25rem;
-}
-.media__playerbar-controlButton.play img, .media__playerbar-controlButton.pause img {
-  height: 2rem;
-  width: 2rem;
-}
-.media__playerbar-controlButton:hover {
-  cursor: pointer;
-}
+  box-sizing: border-box; }
+  .media__playerbar-left, .media__playerbar-right {
+    width: 30%;
+    min-width: 11rem; }
+  .media__playerbar-album {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    width: 100%;
+    height: 4.5rem;
+    color: #fff; }
+  .media__playerbar-albumLink img {
+    height: 100%;
+    max-width: 4.5rem;
+    margin-right: 0.9375rem;
+    width: 4.5rem;
+    background-size: cover; }
+  .media__playerbar-trackInfo {
+    display: inline-block; }
+  .media__playerbar-trackName, .media__playerbar-artistName {
+    display: block;
+    margin: 0.2rem; }
+  .media__playerbar-artistName {
+    font-size: 0.75rem;
+    color: #a0a0a0; }
+  .media__playerbar-center {
+    width: 40%;
+    max-width: 700px;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .media__playerbar-controls {
+    width: 100%; }
+  .media__playerbar-buttons {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    justify-content: center; }
+  .media__playerbar-controlButton {
+    background: transparent;
+    border: none;
+    align-items: center; }
+    .media__playerbar-controlButton img {
+      height: 1.25rem;
+      width: 1.25rem; }
+    .media__playerbar-controlButton.play img, .media__playerbar-controlButton.pause img {
+      height: 2rem;
+      width: 2rem; }
+    .media__playerbar-controlButton:hover {
+      cursor: pointer; }
+  .media__playerbar-right {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    align-self: center;
+    justify-content: center; }
+    .media__playerbar-right .progressBar {
+      width: 125px; }
+  .media__playerbar-volumeBar {
+    width: 180px;
+    padding-top: 25px; }
 .media__playbackbar {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -118,35 +119,29 @@ body, html {
   display: -webkit-flex;
   /* NEW - Chrome */
   display: flex;
-  align-items: center;
-}
-.media__playbackbar-time {
-  color: #a0a0a0;
-  font-size: 0.6875rem;
-  min-width: 2.5rem;
-  text-align: center;
-}
-.media__playbackbar-progress {
-  height: 0.75rem;
-  width: 100%;
-  cursor: pointer;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  align-items: center;
-}
-.media__playbackbar-progressBackground, .media__playbackbar-progressFiller {
-  height: 0.25rem;
-  border-radius: 2px;
-}
-.media__playbackbar-progressBackground {
-  background: #404040;
-  width: 100%;
-}
-.media__playbackbar-progressFiller {
-  background: #a0a0a0;
-  width: 0;
-}
+  align-items: center; }
+  .media__playbackbar-time {
+    color: #a0a0a0;
+    font-size: 0.6875rem;
+    min-width: 2.5rem;
+    text-align: center; }
+  .media__playbackbar-progress {
+    height: 0.75rem;
+    width: 100%;
+    cursor: pointer;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    align-items: center; }
+  .media__playbackbar-progressBackground, .media__playbackbar-progressFiller {
+    height: 0.25rem;
+    border-radius: 2px; }
+  .media__playbackbar-progressBackground {
+    background: #404040;
+    width: 100%; }
+  .media__playbackbar-progressFiller {
+    background: #a0a0a0;
+    width: 0; }
 
 .register {
   background-color: #000;
@@ -156,52 +151,43 @@ body, html {
   display: table;
   padding: 5rem;
   width: 100%;
-  height: 100%;
-}
-.register-wrapper {
-  color: #fff;
-}
-.register-wrapper form input[type=text],
-.register-wrapper form input[type=email],
-.register-wrapper form input[type=password] {
-  background: transparent;
-  display: block;
-  border: 0;
-  border-bottom: 1px solid #fff;
-  height: 2em;
-  line-height: 2em;
-  width: 100%;
-  color: #fff;
-}
-.register-wrapper form button {
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 250px;
-  color: #fff;
-  width: 100%;
-  height: 40px;
-  letter-spacing: 3px;
-  margin: 1rem 0;
-  text-transform: uppercase;
-}
-.register-wrapper form button:hover {
-  cursor: pointer;
-}
-.register-wrapper form .errorMessage {
-  font-size: 0.8rem;
-  display: block;
-  color: #ff0000;
-}
-.register-wrapper__login-form, .register-wrapper__register-form {
-  display: none;
-}
-.register-wrapper .hasAccountText {
-  text-align: center;
-}
-.register-wrapper .hasAccountText span {
-  font-weight: bold;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
+  height: 100%; }
+  .register-wrapper {
+    color: #fff; }
+    .register-wrapper form input[type='text'],
+    .register-wrapper form input[type='email'],
+    .register-wrapper form input[type='password'] {
+      background: transparent;
+      display: block;
+      border: 0;
+      border-bottom: 1px solid #fff;
+      height: 2em;
+      line-height: 2em;
+      width: 100%;
+      color: #fff; }
+    .register-wrapper form button {
+      background-color: transparent;
+      border: 2px solid #fff;
+      border-radius: 250px;
+      color: #fff;
+      width: 100%;
+      height: 40px;
+      letter-spacing: 3px;
+      margin: 1rem 0;
+      text-transform: uppercase; }
+      .register-wrapper form button:hover {
+        cursor: pointer; }
+    .register-wrapper form .errorMessage {
+      font-size: 0.8rem;
+      display: block;
+      color: #ff0000; }
+    .register-wrapper__login-form, .register-wrapper__register-form {
+      display: none; }
+    .register-wrapper .hasAccountText {
+      text-align: center; }
+      .register-wrapper .hasAccountText span {
+        font-weight: bold;
+        font-size: 0.8rem;
+        cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */
