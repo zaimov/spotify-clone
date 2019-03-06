@@ -53,6 +53,29 @@
             }
         }
 
+        &__maincontent {
+            margin-left: 14rem;
+            color: $white;
+            padding: 0 1rem 7rem 1rem;
+
+            &-header {
+                padding: 1.25rem 0;
+                text-align: center;
+            }
+
+            &-griditem {
+                display: inline-block;
+                margin-right: 1.25rem;
+                width: 29%;
+                min-width:  9.375rem;
+                max-width: 12.5rem;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
         &__player {
             width: 100%;
             background: $media-background-color;

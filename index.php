@@ -1,38 +1,25 @@
-<?php
-include("includes/config.php");
+<?php include("includes/partials/header.php"); ?>
 
-if (isset($_SESSION['userLoggedIn'])) {
-    $userLoggedin = $_SESSION['userLoggedIn'];
-} else {
-    header('Location: register.php');
-}
+    <h1 class="media__maincontent-header">You might also like</h1>
 
-?>
+    <div class="media__maincontent-grid">
 
-<!DOCTYPE html>
-<html lang="en">
+        <?php
+            $album_query = mysqli_query($con, "SELECT * FROM albums ORDER BY Rand() LIMIT 10");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sporify Clone</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-</head>
+            while($row = mysqli_fetch_array($album_query)) {
+                
+                echo '<div class="media__maincontent-griditem">
+                        <img src="' . $row["artworkPath"] . '">
+                        <div class="media__maincontent-griditem-info">
+                        ' . $row["title"] . '
+                        </div>
+                    </div>';
 
-<body>
-    <div class="media">
 
-        <div class="media__content">
-            <?php include("includes/partials/media_sidebar.php") ?>
-        </div>
+            }
+        ?>
 
-        <div class="media__player">
-            <?php include("includes/partials/media_playerbar.php") ?>
-        </div>
     </div>
-</body>
 
-</html> 
+<?php include("includes/partials/footer.php"); ?>
