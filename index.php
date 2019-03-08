@@ -10,12 +10,13 @@
             while($row = mysqli_fetch_array($album_query)) {
                 
                 echo '<div class="media__maincontent-griditem">
-                        <img src="' . $row["artworkPath"] . '">
-                        <div class="media__maincontent-griditem-info">
-                        ' . $row["title"] . '
-                        </div>
+                        <a href="album.php?id=' . $row["id"] . '">
+                            <img src="' . $row["artworkPath"] . '">
+                            <div class="media__maincontent-griditem-info">
+                            ' . $row["title"] . '
+                            </div>
+                        </a>
                     </div>';
-
 
             }
         ?>

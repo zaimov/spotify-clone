@@ -1,0 +1,22 @@
+@mixin album--default {
+    .album {
+        padding: 2.5rem 0 0.625rem 0;
+        width: 100%;
+        
+        &__artwork {
+            max-width: 15.63rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &__info {
+            p {
+                color: #a0a0a0;
+            }
+        }
+    }
+}
+
+@include album--default;

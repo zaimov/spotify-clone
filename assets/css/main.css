@@ -60,11 +60,21 @@ body, html {
   .media__maincontent-griditem {
     display: inline-block;
     margin-right: 1.25rem;
+    margin-bottom: 1.25rem;
     width: 29%;
     min-width: 9.375rem;
     max-width: 12.5rem; }
     .media__maincontent-griditem img {
       width: 100%; }
+    .media__maincontent-griditem a {
+      text-decoration: none;
+      color: #fff; }
+    .media__maincontent-griditem-info {
+      text-align: center;
+      text-overflow: elipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.625rem 0; }
 .media__player {
   width: 100%;
   background: #282828;
@@ -250,5 +260,15 @@ body, html {
         font-weight: bold;
         font-size: 0.8rem;
         cursor: pointer; }
+
+.album {
+  padding: 2.5rem 0 0.625rem 0;
+  width: 100%; }
+  .album__artwork {
+    max-width: 15.63rem; }
+    .album__artwork img {
+      width: 100%; }
+  .album__info p {
+    color: #a0a0a0; }
 
 /*# sourceMappingURL=main.css.map */

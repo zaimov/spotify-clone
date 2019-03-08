@@ -66,12 +66,26 @@
             &-griditem {
                 display: inline-block;
                 margin-right: 1.25rem;
+                margin-bottom: 1.25rem;
                 width: 29%;
                 min-width:  9.375rem;
                 max-width: 12.5rem;
 
                 img {
                     width: 100%;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+                &-info {
+                    text-align: center;
+                    text-overflow: elipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    padding: 0.625rem 0;
                 }
             }
         }
