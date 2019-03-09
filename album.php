@@ -42,8 +42,25 @@ $artist = $album->getArtist();
                         $albumArtist = $albumSong->getArtist();
 
                         echo "<li>
-                                <img class='album__songs-play' src='assets/images/icons/play-white.png'>
-                                <span class='album__songs-trackNumber'>$i</span>
+                                <div class='row'>
+                                    <div class='col-sm-2'>
+                                        <img class='album__songs-play' src='assets/images/icons/play-white.png'>
+                                        <span class='album__songs-trackNumber'>$i</span>
+                                    </div>
+
+                                    <div class='col-sm-7'>
+                                        <span class='album__songs-trackName'>" . $albumSong->getTitle() . "</span>
+                                        <span class='album__songs-artist'>" . $albumArtist->getName() . "</span>
+                                    </div>
+                                
+                                    <div class='col-sm-1'>
+                                        <img class='album__songs-more' src='assets/images/icons/more.png'>
+                                    </div>
+
+                                    <div class='col-sm-1'>
+                                        <span class='album__songs-trackDuration'>" . $albumSong->getDuration() . "</span>
+                                    </div>
+                                </div>
                             </li>";
 
                         $i++;

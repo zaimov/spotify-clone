@@ -270,5 +270,29 @@ body, html {
       width: 100%; }
   .album__info p {
     color: #a0a0a0; }
+  .album__songs ul {
+    margin-top: 1.25rem;
+    padding: 0; }
+    .album__songs ul li {
+      list-style: none; }
+      .album__songs ul li span {
+        color: #a0a0a0; }
+      .album__songs ul li:hover {
+        background: #282828; }
+        .album__songs ul li:hover .album__songs-trackNumber {
+          visibility: hidden; }
+        .album__songs ul li:hover img {
+          visibility: visible; }
+  .album__songs-play {
+    width: 1.25rem;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer; }
+  .album__songs-trackName {
+    display: block;
+    color: #fff !important; }
+  .album__songs-more {
+    width: 1.25rem;
+    visibility: hidden; }
 
 /*# sourceMappingURL=main.css.map */
