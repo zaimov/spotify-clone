@@ -22,7 +22,15 @@ function setTrack(trackId, newPLaylist, play) {
 
         const track = JSON.parse(data);
 
-        console.log(data);
+        $(".media__playerbar-trackName").text(track.title);
+
+        $.post('includes/handlers/ajax/getArtistJson.php', {artistId: track.artist}, function(data) {
+            var artist = JSON.parse(data);
+            $(".media__playerbar-artistName").text(artist.name);
+        });
+
+        audioElement.setTrack(track.path);
+        audioElement.play();
     });
     
     if (play) {
@@ -51,12 +59,8 @@ function pauseSong() {
             </span>
 
             <div class="media__playerbar-trackInfo">
-                <span class="media__playerbar-trackName">
-                    Nothing else matters Nothing else matters
-                </span>
-                <span class="media__playerbar-artistName">
-                    Metallica
-                </span>
+                <span class="media__playerbar-trackName"></span>
+                <span class="media__playerbar-artistName"></span>
             </div>
         </div>
     </div>
