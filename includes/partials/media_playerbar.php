@@ -29,8 +29,12 @@ function setTrack(trackId, newPLaylist, play) {
             $(".media__playerbar-artistName").text(artist.name);
         });
 
-        audioElement.setTrack(track.path);
-        audioElement.play();
+        $.post('includes/handlers/ajax/getAlbumJson.php', {albumId: track.album}, function(data) {
+            var album = JSON.parse(data);
+            $(".media__playerbar-albumLink img").attr("src", album.artworkPath);
+        });
+
+        audioElement.setTrack(track);
     });
     
     if (play) {
@@ -39,6 +43,11 @@ function setTrack(trackId, newPLaylist, play) {
 }
 
 function playSong() {
+
+    if (audioElement.audio.currentTime == 0) {
+        $.post('includes/handlers/ajax/updatePlays.php', {songId: audioElement.currentlyPlaying.id});
+    }
+
     $(".media__playerbar-controlButton.play").hide();
     $(".media__playerbar-controlButton.pause").show();
     audioElement.play();
@@ -55,7 +64,7 @@ function pauseSong() {
     <div class="media__playerbar-left">
         <div class="media__playerbar-album">
             <span class="media__playerbar-albumLink">
-                <img src="https://jellyfishhealth.com/wp-content/uploads/2018/03/Square-PhotoWithout.png" alt="album">
+                <img src="" alt="album">
             </span>
 
             <div class="media__playerbar-trackInfo">
