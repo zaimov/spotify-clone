@@ -14,8 +14,12 @@ $jsonArray = json_encode($resultArray);
 $(document).ready(function(){
     currentPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    setTrack(currentPlaylist[0], currentPLaylist, false);
+    setTrack(currentPlaylist[0], currentPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
+
+    $(".media__playerbar").on("mousedown mousemove touchstart touchmove", function(e) {
+        e.preventDefault();
+    });
 
     $(".media__playbackbar .progressBar").mousedown(function () {
        mouseDown = true; 
@@ -64,9 +68,29 @@ function timeFromOffset(mouse, progressBar) {
     audioElement.setTime(seconds);
 }
 
-function setTrack(trackId, newPLaylist, play) {
-    $.post('includes/handlers/ajax/getSongJson.php', {songId: trackId}, function(data) {
+function nextSong() {
+    if(repeat) {
+        audioElement.setTime(0);
+        playSong();
+        return;
+    }
 
+    currentIndex == currentPlaylist.length - 1 ? currentIndex = 0 : currentIndex++;
+    var trackToPlay = currentPlaylist[currentIndex];
+    setTrack(trackToPlay, currentPlaylist, true);
+}
+
+function setRepeat() {
+    repeat = !repeat;
+    var imageName = repeat ? "repeat-active.png" : "repeat.png";
+    $(".media__playerbar-controlButton.repeat img").attr("src", "assets/images/icons/" + imageName);
+}
+
+function setTrack(trackId, newPlaylist, play) {
+    currentIndex = currentPlaylist.indexOf(trackId);
+    pauseSong();
+
+    $.post('includes/handlers/ajax/getSongJson.php', {songId: trackId}, function(data) {
         const track = JSON.parse(data);
 
         $(".media__playerbar-trackName").text(track.title);
@@ -82,6 +106,7 @@ function setTrack(trackId, newPLaylist, play) {
         });
 
         audioElement.setTrack(track);
+        playSong();
     });
     
     if (play) {
@@ -140,11 +165,11 @@ function pauseSong() {
                     <img src="assets/images/icons/pause.png" alt="Pause">
                 </button>
 
-                <button class="media__playerbar-controlButton next" title="Next Button">
+                <button class="media__playerbar-controlButton next" title="Next Button" onclick="nextSong()">
                     <img src="assets/images/icons/next.png" alt="Next">
                 </button>
 
-                <button class="media__playerbar-controlButton repeat" title="Repeat Button">
+                <button class="media__playerbar-controlButton repeat" title="Repeat Button" onclick="setRepeat()">
                     <img src="assets/images/icons/repeat.png" alt="Repeat">
                 </button>
             </div>
