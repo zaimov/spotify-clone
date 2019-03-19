@@ -1,12 +1,38 @@
 var currentPLaylist = []; 
 var audioElement;
+var mouseDown = false;
+
+function formatTime(seconds) {
+    var time = Math.round(seconds);
+    var minutes = Math.floor(time / 60);
+    var seconds = time - minutes * 60;
+
+    var zero = seconds < 10 ? zero = "0" : zero = "";
+
+    return minutes + ":" + zero + seconds;
+}
+
+function updateTimeProgressBar(audio) {
+    $(".media__playbackbar-time.current").text(formatTime(audio.currentTime));
+    $(".media__playbackbar-time.remaining").text(formatTime(audio.duration - audio.currentTime));
+
+    var progress = audio.currentTime /audio.duration * 100;
+    $(".media__playbackbar .media__playbackbar-progressFiller").css("width", progress + "%");
+}
 
 function Audio() {
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
 
     this.audio.addEventListener('canplay', function () {
-        $('.media__playbackbar-time.remaining').text(this.duration);
+        var duration = formatTime(this.duration);
+        $('.media__playbackbar-time.remaining').text(duration);
+    });
+
+    this.audio.addEventListener('timeupdate', function () {
+        if(this.duration) {
+            updateTimeProgressBar(this);
+        }
     });
 
     this.setTrack = function(track) {
@@ -20,6 +46,10 @@ function Audio() {
 
     this.pause = function() {
         this.audio.pause();
+    }
+
+    this.setTime = function(seconds) {
+        this.audio.currentTime = seconds;
     }
 }
 
