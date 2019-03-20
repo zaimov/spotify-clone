@@ -30,8 +30,9 @@
             &-items {
                 border-top: 1px solid $media-buttons-color;
                 padding: 0 0 1rem 0;
-
-                a {
+                
+                a,
+                span {
                     padding: 1rem 0 0 0;
                     display: block;
                     color: $media-buttons-color;

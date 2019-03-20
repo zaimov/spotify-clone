@@ -37,12 +37,14 @@ body, html {
   .media__content-items {
     border-top: 1px solid #a0a0a0;
     padding: 0 0 1rem 0; }
-    .media__content-items a {
+    .media__content-items a,
+    .media__content-items span {
       padding: 1rem 0 0 0;
       display: block;
       color: #a0a0a0;
       text-decoration: none; }
-      .media__content-items a:hover {
+      .media__content-items a:hover,
+      .media__content-items span:hover {
         color: #fff; }
   .media__content-search {
     position: relative; }
