@@ -12,9 +12,9 @@ $jsonArray = json_encode($resultArray);
 
 <script>
 $(document).ready(function(){
-    currentPlaylist = <?php echo $jsonArray; ?>;
+    var newPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    setTrack(currentPlaylist[0], currentPlaylist, false);
+    setTrack(newPlaylist[0], newPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
 
     $(".media__playerbar").on("mousedown mousemove touchstart touchmove", function(e) {
@@ -68,6 +68,15 @@ function timeFromOffset(mouse, progressBar) {
     audioElement.setTime(seconds);
 }
 
+function previousSong() {
+    if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+        audioElement.setTime(0);
+    } else {
+        currentIndex = currentIndex - 1;
+        setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+    }
+}
+
 function nextSong() {
     if(repeat) {
         audioElement.setTime(0);
@@ -76,8 +85,14 @@ function nextSong() {
     }
 
     currentIndex == currentPlaylist.length - 1 ? currentIndex = 0 : currentIndex++;
-    var trackToPlay = currentPlaylist[currentIndex];
+    var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
     setTrack(trackToPlay, currentPlaylist, true);
+}
+
+function setMuted() {
+    audioElement.audio.muted = !audioElement.audio.muted;
+    var imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
+    $(".media__playerbar-controlButton.volume img").attr("src", "assets/images/icons/" + imageName);
 }
 
 function setRepeat() {
@@ -86,8 +101,39 @@ function setRepeat() {
     $(".media__playerbar-controlButton.repeat img").attr("src", "assets/images/icons/" + imageName);
 }
 
+function setShuffle() {
+    shuffle = !shuffle;
+    var imageName = shuffle ? "shuffle-active.png" : "shuffle.png";
+    $(".media__playerbar-controlButton.shuffle img").attr("src", "assets/images/icons/" + imageName);
+
+    if(shuffle) {
+        shuffleArray(shufflePlaylist);
+        currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
+    } else {
+        currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
+
+    }
+}
+
+function shuffleArray(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
 function setTrack(trackId, newPlaylist, play) {
-    currentIndex = currentPlaylist.indexOf(trackId);
+    if(newPlaylist != currentPlaylist) {
+        currentPlaylist = newPlaylist;
+        shufflePlaylist = currentPlaylist.slice();
+        shuffleArray(shufflePlaylist);
+    }
+
+    shuffle ? shufflePlaylist.indexOf(trackId) : currentPlaylist.indexOf(trackId);
     pauseSong();
 
     $.post('includes/handlers/ajax/getSongJson.php', {songId: trackId}, function(data) {
@@ -149,11 +195,11 @@ function pauseSong() {
     <div class="media__playerbar-center">
         <div class="media__playerbar-controls">
             <div class="media__playerbar-buttons">
-                <button class="media__playerbar-controlButton shuffle" title="Shuffle Button">
+                <button class="media__playerbar-controlButton shuffle" title="Shuffle Button" onclick="setShuffle()">
                     <img src="assets/images/icons/shuffle.png" alt="Shuffle">
                 </button>
 
-                <button class="media__playerbar-controlButton previous" title="Previous Button">
+                <button class="media__playerbar-controlButton previous" title="Previous Button" onclick="previousSong()">
                     <img src="assets/images/icons/previous.png" alt="Previous">
                 </button>
 
@@ -192,7 +238,7 @@ function pauseSong() {
 
     <div class="media__playerbar-right">
         <div class="media__playerbar-volumeBar">
-            <button class="media__playerbar-controlButton volume" title="Volume Button">
+            <button class="media__playerbar-controlButton volume" title="Volume Button" onclick="setMuted()">
                 <img src="assets/images/icons/volume.png" alt="Volume">
             </button>
 
