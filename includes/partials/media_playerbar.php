@@ -127,13 +127,14 @@ function shuffleArray(a) {
 }
 
 function setTrack(trackId, newPlaylist, play) {
+   
     if(newPlaylist != currentPlaylist) {
         currentPlaylist = newPlaylist;
         shufflePlaylist = currentPlaylist.slice();
         shuffleArray(shufflePlaylist);
     }
 
-    shuffle ? shufflePlaylist.indexOf(trackId) : currentPlaylist.indexOf(trackId);
+    shuffle ? currentIndex = shufflePlaylist.indexOf(trackId) : currentIndex = currentPlaylist.indexOf(trackId);
     pauseSong();
 
     $.post('includes/handlers/ajax/getSongJson.php', {songId: trackId}, function(data) {
